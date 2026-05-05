@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@100..900&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-romantic: "Dancing Script", cursive;
+  --font-serif: "Libre Baskerville", serif;
+
+  --color-romantic-pink: #ffafbd;
+  --color-romantic-lavender: #c9bbcf;
+  --color-romantic-peach: #ffc3a0;
+  --color-romantic-deep-pink: #ff6a88;
+  --color-bento-bg: #FFF5F7;
+  --color-bento-text: #5A4B4B;
+  --color-bento-pink: #D4145A;
+  --color-bento-border: #FFD1DC;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-bento-bg)] text-[var(--color-bento-text)] selection:bg-pink-200;
+    font-family: var(--font-serif);
+    overflow-x: hidden;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+.heart-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  animation: float linear forwards;
+}
+
+.bento-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--color-bento-border);
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(255, 182, 193, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(255, 182, 193, 0.3);
+  border-color: #FFB6C1;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(212, 20, 90, 0.3);
+}
+
+.floating-element {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.animate-shake {
+  animation: shake 0.2s ease-in-out infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ffecf1;
+  border-radius: 10px;
+}
+
